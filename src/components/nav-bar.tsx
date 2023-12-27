@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/sheet";
 import { SIDEBAR_DATA } from "@/data/side-bar";
 import Link from "next/link";
-import { H1 } from "./ui/typography";
+import { H2 } from "./ui/typography";
 
 const NavBar = () => {
   return (
@@ -41,7 +41,7 @@ const NavBar = () => {
                         {data.icon}
                         <SheetClose asChild>
                           <Link href={data.link}>
-                            <H1 className="text-white">{data.title}</H1>
+                            <H2 className="text-white">{data.title}</H2>
                           </Link>
                         </SheetClose>
                       </div>
