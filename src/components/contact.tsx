@@ -14,6 +14,7 @@ import {
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
+import { sendContactForm } from "@/lib/api";
 
 const formSchema = z.object({
   emailAddress: z.string().email(),
@@ -21,6 +22,7 @@ const formSchema = z.object({
     message: "Name must be at least 2 characters.",
   }),
   message: z.string(),
+  subject: z.string(),
 });
 
 const Contact = () => {
@@ -30,11 +32,12 @@ const Contact = () => {
       emailAddress: "",
       name: "",
       message: "",
+      subject: "",
     },
   });
 
-  const handleSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+  const handleSubmit = async (data: z.infer<typeof formSchema>) => {
+    await sendContactForm(data);
   };
 
   return (
@@ -91,6 +94,26 @@ const Contact = () => {
               />
               <FormField
                 control={form.control}
+                name="subject"
+                render={({ field }) => {
+                  return (
+                    <FormItem>
+                      <FormLabel>Subject</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Subject"
+                          type="text"
+                          {...field}
+                          className="rounded-[8px] border-[#737171]"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  );
+                }}
+              />
+              <FormField
+                control={form.control}
                 name="message"
                 render={({ field }) => {
                   return (
@@ -111,6 +134,12 @@ const Contact = () => {
               <Button
                 type="submit"
                 className="border w-full rounded-[8px] border-[#737171]"
+                // disabled={
+                //   !form.getValues("emailAddress") ||
+                //   !form.getValues("name") ||
+                //   !form.getValues("message") ||
+                //   !form.getValues("subject")
+                // }
               >
                 Submit
               </Button>
