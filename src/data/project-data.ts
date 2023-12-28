@@ -13,7 +13,7 @@ export const PROJECT_DATA = [
       },
       {
         title: "Github",
-        link: "https://github.com/smml-espiritu/portfolio-website",
+        link: "https://github.com/smml-espiritu/sme-portfolio",
       },
     ],
     tags: [
