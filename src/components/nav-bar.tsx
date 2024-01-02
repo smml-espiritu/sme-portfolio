@@ -14,14 +14,24 @@ import {
 import { SIDEBAR_DATA } from "@/data/side-bar";
 import Link from "next/link";
 import { H2 } from "./ui/typography";
+import { SvgCvNormal } from "./icons/cv-normal";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 const NavBar = () => {
   return (
     <div className="w-screen bg-black text-[#fff] h-[72px] sm:hidden sticky top-0 z-40">
       <div className="h-full flex justify-center items-center">
-        <Button variant={"icon"} size={"icon"}>
-          CV
-        </Button>
+        <Popover>
+          <PopoverTrigger>
+            <SvgCvNormal />
+          </PopoverTrigger>
+          <PopoverContent>Currently unavailable</PopoverContent>
+        </Popover>
+
         <SvgSmeLogo className="h-[50px]" />
         <Sheet>
           <SheetTrigger asChild>
