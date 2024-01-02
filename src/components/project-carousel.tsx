@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import {
   Carousel,
   CarouselContent,
@@ -9,20 +8,23 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { PROJECT_DATA } from "@/data/project-data";
-import { Card2, ToolsCard } from "./wrapper";
-import { H2, SubH } from "./ui/typography";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "./ui/tooltip";
+import { SubH } from "./ui/typography";
 import { Badge } from "./ui/badge";
 import Image from "next/image";
+import Autoplay from "embla-carousel-autoplay";
+import React from "react";
 
 const ProjectCarousel = () => {
+  const plugin = React.useRef(
+    Autoplay({ delay: 10000, stopOnInteraction: true })
+  );
   return (
-    <Carousel className="w-full">
+    <Carousel
+      className="w-full"
+      plugins={[plugin.current]}
+      onMouseEnter={plugin.current.stop}
+      onMouseLeave={plugin.current.reset}
+    >
       <CarouselContent>
         {PROJECT_DATA.map((data, index) => (
           <CarouselItem key={index}>

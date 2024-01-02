@@ -9,6 +9,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import ProjectCarousel from "./project-carousel";
+import Link from "next/link";
 
 const HeroPage = () => {
   return (
@@ -59,7 +60,7 @@ const HeroPage = () => {
                 through every click and scroll.
               </SubH>
               <Button className="bg-black border border-[#737171] rounded-[8px]">
-                Get in touch
+                <Link href="/contact">Get in touch</Link>
               </Button>
             </div>
           </Card2>
