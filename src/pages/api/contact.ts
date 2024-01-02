@@ -14,7 +14,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         ...mailOption,
         subject: data.subject,
         text: "test string",
-        html: `<h1>Email: ${data.emailAddress}</h1><h2>Name: ${data.name}</h2><p>${data.message}</p>`,
+        html: `
+        <h1>${data.subject}</h1>
+        <p><strong>Email:</strong> ${data.emailAddress}</p>
+        <p><strong>Name:</strong> ${data.name}</p>
+        <p><strong>Message:</strong> ${data.message}</p> `,
       });
 
       return res.status(200).json({ success: true });
