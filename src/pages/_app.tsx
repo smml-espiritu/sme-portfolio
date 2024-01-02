@@ -6,9 +6,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>SME portfolio</title>
+        <title>SME | Front-end Dev.</title>
         <meta name="description" content="My portfolio website" />
-        <meta property="og:title" content="SME portfolio" />
+        <meta property="og:title" content="SME | Front-end Dev." />
         <meta
           property="og:description"
           content="Explore my diverse portfolio showcasing a collection of my creative works and projects."
