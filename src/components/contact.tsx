@@ -19,6 +19,7 @@ import { Toaster, toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { RootWrapper } from "./wrapper";
 import ProjectCarousel from "./project-carousel";
+import Testimonial from "./testimonial";
 
 const formSchema = z.object({
   emailAddress: z.string().email(),
@@ -172,7 +173,7 @@ const Contact = () => {
           <div className="border border-[#737171] bg-black w-full max-w-[517px] lg:h-[458px] rounded-[8px]">
             <div className="flex flex-col items-center gap-5 p-5">
               <H2 className="self-start">Testimonial</H2>
-              <ProjectCarousel />
+              <Testimonial />
             </div>
           </div>
         </div>
