@@ -15,8 +15,8 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta property="og:url" content="https://sme-portfolio.vercel.app" />
         <meta
-          property="og:image"
-          content={`https://sme-portfolio.vercel.app/assets/Phone.png`}
+          property="og:image:type"
+          content="https://sme-portfolio.vercel.app/assets/meta-image.png"
         />
       </Head>
       <Component {...pageProps} />
